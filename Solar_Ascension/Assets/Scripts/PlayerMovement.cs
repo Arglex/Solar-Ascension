@@ -7,32 +7,37 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float jumpForce = 1f;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
-    private Ray ray;
+    private Ray2D ray;
+    private bool jump = false;
     private bool isGrounded;
 
     private void Update()
     {
-        
-    }
-    private void FixedUpdate()
-    {
-        ray = new Ray(groundCheck.position, Vector3.down);
-        isGrounded = Physics.Raycast(ray, 0.2f, groundLayer);
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(horizontalInput * moveSpeed, rb.velocity.y, 0f);
-        rb.velocity = movement;
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if (isGrounded)
             {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                jump = true;
             }
+        }
+    }
+    private void FixedUpdate()
+    {
+        //ray = new Ray2D();
+        isGrounded = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, groundLayer);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        rb.velocity = movement;
+        if (jump)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jump = false;
         }
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawRay(ray);
+        //Gizmos.DrawRay(ray);
     }
 }
