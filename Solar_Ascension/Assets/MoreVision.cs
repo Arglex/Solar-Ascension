@@ -11,7 +11,10 @@ public class MoreVision : MonoBehaviour
     private Volume volume;
     private Vignette vg;
     private float darknnessCoolDownTimer;
+    private float abillityCoolDownTimer;
+    private bool abillityReady = true;
 
+    [SerializeField] private float abillityCoolDown = 5f;
     [SerializeField] private float darknessCoolDown = 1.5f;
     [SerializeField] private float darknessAmount = 0.001f;
     [SerializeField] private float lightAmount = 0.06f;
@@ -41,6 +44,7 @@ public class MoreVision : MonoBehaviour
     
     void Start()
     {
+        abillityCoolDownTimer = abillityCoolDown;
         darknnessCoolDownTimer = darknessCoolDown;
         volume = volumeGameObject.GetComponent<Volume>();
         volume.profile.TryGet(out vg);
@@ -48,19 +52,38 @@ public class MoreVision : MonoBehaviour
 
     private void Update()
     {
-        if (darknessCoolDown > 0)
+        if (abillityCoolDown >= 0)
+        {
+            abillityCoolDown -= Time.deltaTime;
+        }
+        else
+        {
+            abillityReady = true;
+        }
+        if (darknessCoolDown >= 0)
         {
             darknessCoolDown -= Time.deltaTime;
         }
         else
         {
+            if (vg.intensity.value >= 1)
+            {
+                return;
+            }
             vg.intensity.value += darknessAmount;
             darknessCoolDown = darknnessCoolDownTimer;
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            BurstAbillity();
+
+            if (abillityReady)
+            {
+                BurstAbillity();
+                abillityCoolDown = abillityCoolDownTimer;
+                abillityReady = false;
+            }
+            
         }
     }
 
