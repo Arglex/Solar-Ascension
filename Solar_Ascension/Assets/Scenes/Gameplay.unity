@@ -2527,6 +2527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeGameObject: {fileID: 832575517}
+  minimumLight: 0.55
   abillityCoolDown: 5
   darknessCoolDown: 0.3
   darknessAmount: 0.01
@@ -2534,7 +2535,7 @@ MonoBehaviour:
   burstAbillityAmount: 0.8
   maxLight: 0.25
   postAbillityDecay: 0.005
-  postAbillityDecayReach: 0.675
+  postAbillityDecayReach: 0.55
 --- !u!1 &1200632618
 GameObject:
   m_ObjectHideFlags: 0

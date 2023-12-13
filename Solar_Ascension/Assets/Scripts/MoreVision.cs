@@ -15,6 +15,7 @@ public class MoreVision : MonoBehaviour
     private bool abillityReady = true;
     private bool postAbillityBool = false;
 
+    [SerializeField] private float minimumLight = 0.55f;
     [SerializeField] private float abillityCoolDown = 5f;
     [SerializeField] private float darknessCoolDown = 1.5f;
     [SerializeField] private float darknessAmount = 0.001f;
@@ -69,11 +70,17 @@ public class MoreVision : MonoBehaviour
         }
         else
         {
-            if (vg.intensity.value >= 1)
+            float tempValue = vg.intensity.value;
+            tempValue += darknessAmount;
+            if (tempValue >= minimumLight)
             {
-                return;
+                vg.intensity.value = minimumLight;
             }
-            vg.intensity.value += darknessAmount;
+            else
+            {
+                vg.intensity.value = tempValue;
+            }
+            
             if (postAbillityBool)
             {
                 darknessCoolDown = postAbillityDecay;
