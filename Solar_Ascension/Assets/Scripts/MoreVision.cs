@@ -13,6 +13,7 @@ public class MoreVision : MonoBehaviour
     private float darknnessCoolDownTimer;
     private float abillityCoolDownTimer;
     private bool abillityReady = true;
+    private bool postAbillityBool = false;
 
     [SerializeField] private float abillityCoolDown = 5f;
     [SerializeField] private float darknessCoolDown = 1.5f;
@@ -20,6 +21,8 @@ public class MoreVision : MonoBehaviour
     [SerializeField] private float lightAmount = 0.06f;
     [SerializeField] private float burstAbillityAmount = 0.15f;
     [SerializeField] private float maxLight = 0.25f;
+    [SerializeField] private float postAbillityDecay = 0.02f;
+    [SerializeField] private float postAbillityDecayReach = 0.675f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -71,19 +74,44 @@ public class MoreVision : MonoBehaviour
                 return;
             }
             vg.intensity.value += darknessAmount;
-            darknessCoolDown = darknnessCoolDownTimer;
+            if (postAbillityBool)
+            {
+                darknessCoolDown = postAbillityDecay;
+                if (vg.intensity.value >= postAbillityDecayReach)
+                {
+                    TogglePostAbillity();
+                    darknessCoolDown = darknnessCoolDownTimer;
+                }
+            }
+            else
+            {
+                darknessCoolDown = darknnessCoolDownTimer;
+            }
+            
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-
             if (abillityReady)
             {
                 BurstAbillity();
                 abillityCoolDown = abillityCoolDownTimer;
                 abillityReady = false;
+                TogglePostAbillity();
             }
             
+        }
+    }
+
+    private void TogglePostAbillity()
+    {
+        if (postAbillityBool)
+        {
+            postAbillityBool = false;
+        }
+        else
+        {
+            postAbillityBool = true;
         }
     }
 

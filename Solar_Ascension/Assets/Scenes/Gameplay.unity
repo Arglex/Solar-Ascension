@@ -1770,7 +1770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2531,8 +2531,10 @@ MonoBehaviour:
   darknessCoolDown: 0.3
   darknessAmount: 0.01
   lightAmount: 0.15
-  burstAbillityAmount: 0.3
+  burstAbillityAmount: 0.8
   maxLight: 0.25
+  postAbillityDecay: 0.005
+  postAbillityDecayReach: 0.675
 --- !u!1 &1200632618
 GameObject:
   m_ObjectHideFlags: 0
