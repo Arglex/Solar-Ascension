@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer fireSpriteRenderer;
     private Ray2D ray;
     private bool jump = false;
     private bool isGrounded;
@@ -36,10 +37,12 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0.001)
         {
             spriteRender.flipX = true;
+            fireSpriteRenderer.flipX = true;
         }
         else if(horizontalInput < -0.001)
         {
             spriteRender.flipX = false;
+            fireSpriteRenderer.flipX = false;
         }
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.velocity = movement;

@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class MoreVision : MonoBehaviour
 {
     [SerializeField] private GameObject volumeGameObject;
+    [SerializeField] private Slider slider;
     private Volume volume;
     private Vignette vg;
     private float darknnessCoolDownTimer;
@@ -94,7 +96,8 @@ public class MoreVision : MonoBehaviour
             {
                 darknessCoolDown = darknnessCoolDownTimer;
             }
-            
+
+            slider.value = 1- vg.intensity.value ;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
