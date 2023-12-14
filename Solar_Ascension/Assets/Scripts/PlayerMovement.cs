@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
-                animator.SetBool("isJumping", !isGrounded);
+                animator.SetBool("isJumping", true);
                 jump = true;
             }
         }
