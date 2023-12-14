@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 43d5cc18184ff034998592a43419eeca
+guid: ac8523ba18fc85d409d900a192faddf1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2048
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,112 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: spritesheet_eating_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2050
-        height: 2050
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22e6674a3af0cf747adc37ab3841b86c
-      internalID: -327553671
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet_eating_1
-      rect:
-        serializedVersion: 2
-        x: 2050
-        y: 0
-        width: 2050
-        height: 2050
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c1659733015dfb4d91dbc33a22e358f
-      internalID: 1825041645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet_eating_2
-      rect:
-        serializedVersion: 2
-        x: 4100
-        y: 0
-        width: 2050
-        height: 2050
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff24d66b51f47794a989bb58cc744570
-      internalID: -1701033752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet_eating_3
-      rect:
-        serializedVersion: 2
-        x: 6150
-        y: 0
-        width: 2050
-        height: 2050
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef304156372880e499a5781818e81a93
-      internalID: 1069453161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spritesheet_eating_4
-      rect:
-        serializedVersion: 2
-        x: 8200
-        y: 0
-        width: 2050
-        height: 2050
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f1fc30f931a8c34dbc8116bc4267889
-      internalID: -1670279250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -219,12 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      spritesheet_eating_2: -1701033752
-      spritesheet_eating_0: -327553671
-      spritesheet_eating_1: 1825041645
-      spritesheet_eating_3: 1069453161
-      spritesheet_eating_4: -1670279250
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
