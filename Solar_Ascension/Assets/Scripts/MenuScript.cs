@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private GameObject pauseCanvas;
-
-    private bool gamePaused = false;
     private void Start()
     {
         Cursor.visible = true;
@@ -25,32 +21,5 @@ public class MenuScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-    }
-
-    public void PauseGame()
-    {
-        ToggleGamePaused();
-        if (gamePaused)
-        {
-            playerMovement.enabled = false;
-            pauseCanvas.SetActive(true);
-        }
-        else
-        {
-            playerMovement.enabled = true;
-            pauseCanvas.SetActive(false);
-        }
-    }
-
-    private void ToggleGamePaused()
-    {
-        if (gamePaused)
-        {
-            gamePaused = false;
-        }
-        else
-        {
-            gamePaused = true;
-        }
     }
 }
